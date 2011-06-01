@@ -12,8 +12,6 @@
 #import "TitleLayer.h"
 #import "GameConfig.h"
 #import "GasBackground.h"
-#import "StarBackground.h"
-#import "planet.h"
 #import "EasyLevelFrames.h"
 #import "LevelMap.h"
 
@@ -48,6 +46,10 @@
 		ship.rotation = 90;
         ship.scale = .75;
         
+        motionStreak = [motionStreak initWithFade:.5 minSeg:5 image:@"obstacle_large.png" width:10 length:10 color:ccc4(255, 255, 255, 255)];
+        
+        //[self addChild:motionStreak];
+
         currentLevel = 1;
 		
         _background = [GasBackground spriteWithFile:@"nyc.jpg"];
@@ -107,13 +109,14 @@
 		if ([touchArray count] > 1)
 		{
 			NSLog(@"TWO TOUCHES");
-			ship.acceleration = 4;
 		}
         
+        NSLog(@"ONE TOUCH");
+
         _boostGiven = TRUE;
-		id boostForward = [CCMoveTo actionWithDuration:1 position:ccp(ship.position.x + 100, ship.position.y)];
-        id ease = [CCEaseExponentialIn actionWithAction:boostForward];
-        [ship runAction: ease];
+		//id boostForward = [CCMoveTo actionWithDuration:1 position:ccp(ship.position.x + 100, ship.position.y)];
+        //id ease = [CCEaseExponentialIn actionWithAction:boostForward];
+        //[ship runAction: ease];
 		
 		//ship.acceleration = 2;
 	}
@@ -132,11 +135,11 @@
     //ALWAYS allow the ship to move at 90 from 50 to 270
     
     [self moveShip:acceleration.y];
-    
+
     //Going Up
     if (acceleration.y > .10) {
         // If the background is still on the stage.
-        if (-40 < _background.position.y) {
+        if (-35 < _background.position.y) {
             
             //Move obstacles, allow for ship rotation and move the background
             
@@ -291,7 +294,7 @@
 			[self hitDetected];
 		}
 	}
-	
+    
 	for (obstacle *p in levelMap.planets)
 	{
 		[self addChild:p];
@@ -315,7 +318,8 @@
 // Mostly handles collision detection
 - (void)update:(ccTime)dt
 {
-    
+    //[motionStreak setPosition:ccp(motionStreak.position.x, motionStreak.position.y + 5)];
+
 	scoresString = [NSString stringWithFormat:@"%i", ship.score];
 	[scoresTotal setString:scoresString];
 	
@@ -341,21 +345,6 @@
 		}
         
 	}	// End obstacle loop
-	
-	for (planet *p in levelMap.planets)
-	{
-		
-        if ([p collidesWith:ship])
-		{
-			[self hitDetected];
-		}
-		if (p.position.x <= 0)
-		{
-			[levelMap.planets removeObjectAtIndex:[levelMap.planets indexOfObject:p]];
-            
-		}
-        
-	}	// End planet loop
 }
 
 -(void)hitDetected
@@ -408,7 +397,18 @@
 	
 	// Add menu to layer
 	[self addChild:menu z:2];
-	
+    
+//    UIAlertView *myAlertView = [[UIAlertView alloc] initWithTitle:@"Submit your score?" message:@"Insert your name.\n\n\n" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"OK", nil];
+//    
+//    UITextField *myTextField = [[UITextField alloc] initWithFrame:CGRectMake(22.0, 55.0, 240.0, 25.0)];
+//    [myTextField setBackgroundColor:[UIColor whiteColor]];
+//    [myAlertView addSubview:myTextField];
+//    [myTextField setUserInteractionEnabled:YES];
+//    [myAlertView show];
+//    [myAlertView release];
+//    
+//    NSLog(@"%@",myTextField.text);
+    
     [self submitScore:scoresString username:@"Jason"];
 }
 

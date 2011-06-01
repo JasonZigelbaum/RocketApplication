@@ -8,7 +8,6 @@
 
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
-#import "planet.h"
 #import "obstacle.h"
 #import "LevelMap.h"
 

@@ -8,7 +8,6 @@
 
 #import "EasyLevelFrames.h"
 #import "obstacle.h"
-#import "planet.h"
 #import "GameConfig.h"
 
 @implementation EasyLevelFrames
@@ -44,9 +43,9 @@
 	CGPoint asteroidPoint5 = ccp(490,20);
 	CGPoint asteroidPoint6 = ccp(1000,100);
 	
-	[levelMap createObstacleAt:planetPoint1 withSize:Large];
-	[levelMap createObstacleAt:planetPoint2 withSize:Medium];
-	[levelMap createObstacleAt:planetPoint3 withSize:Small];
+	[levelMap createPlanetAt:planetPoint1 withSize:Large];
+	[levelMap createPlanetAt:planetPoint2 withSize:Medium];
+	[levelMap createPlanetAt:planetPoint3 withSize:Small];
 
 	[levelMap createObstacleAt:asteroidPoint1 withSize:Large];
 	[levelMap createObstacleAt:asteroidPoint2 withSize:Medium];
@@ -74,9 +73,9 @@
 	CGPoint asteroidPoint2 = ccp(640,300);
 	CGPoint asteroidPoint3 = ccp(1000,230);
 	
-	[levelMap createObstacleAt:planetPoint1 withSize:Large];
-	[levelMap createObstacleAt:planetPoint2 withSize:Medium];
-	[levelMap createObstacleAt:planetPoint3 withSize:Small];
+	[levelMap createPlanetAt:planetPoint1 withSize:Large];
+	[levelMap createPlanetAt:planetPoint2 withSize:Medium];
+	[levelMap createPlanetAt:planetPoint3 withSize:Small];
 	
 	[levelMap createObstacleAt:asteroidPoint1 withSize:Large];
 	[levelMap createObstacleAt:asteroidPoint2 withSize:Medium];
@@ -101,9 +100,9 @@
 	CGPoint asteroidPoint2 = ccp(990,220);
 	CGPoint asteroidPoint3 = ccp(800,100);
 	
-	[levelMap createObstacleAt:planetPoint1 withSize:Large];
-	[levelMap createObstacleAt:planetPoint2 withSize:Medium];
-	[levelMap createObstacleAt:planetPoint3 withSize:Small];
+	[levelMap createPlanetAt:planetPoint1 withSize:Large];
+	[levelMap createPlanetAt:planetPoint2 withSize:Medium];
+	[levelMap createPlanetAt:planetPoint3 withSize:Small];
 	
 	[levelMap createObstacleAt:asteroidPoint1 withSize:Large];
 	[levelMap createObstacleAt:asteroidPoint2 withSize:Large];
@@ -128,9 +127,9 @@
 	CGPoint asteroidPoint2 = ccp(640,300);
 	CGPoint asteroidPoint3 = ccp(1000,230);
 	
-	[levelMap createObstacleAt:planetPoint1 withSize:Large];
-	[levelMap createObstacleAt:planetPoint2 withSize:Medium];
-	[levelMap createObstacleAt:planetPoint3 withSize:Small];
+	[levelMap createPlanetAt:planetPoint1 withSize:Large];
+	[levelMap createPlanetAt:planetPoint2 withSize:Medium];
+	[levelMap createPlanetAt:planetPoint3 withSize:Small];
 	
 	[levelMap createObstacleAt:asteroidPoint1 withSize:Small];
 	[levelMap createObstacleAt:asteroidPoint2 withSize:Small];

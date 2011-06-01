@@ -12,13 +12,18 @@
 @interface obstacle : CCSprite {
 	int size;
 	float velocity;
+    CCSprite *starAnimation;
+	NSMutableArray *starAnimationFrames;
+
 }
 
 @property int size;
 @property float velocity;
+@property NSMutableArray* starAnimationFrames;
 
 -(id)initWithTexture:(CCTexture2D *)texture rect:(CGRect)rect;
 -(void)update:(ccTime)dt;
 -(bool)collidesWith:(CCSprite*) obj;
+-(void)animate;
 
 @end
