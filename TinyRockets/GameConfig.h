@@ -1,8 +1,8 @@
 //
 //  GameConfig.h
-//  TinyRockets
+//  pocketrocketdev
 //
-//  Created by Jason on 5/29/11.
+//  Created by Jason on 3/13/11.
 //  Copyright __MyCompanyName__ 2011. All rights reserved.
 //
 
@@ -15,6 +15,7 @@
 //		UIViewController,
 //		CCDirector
 //
+
 #define kGameAutorotationNone 0
 #define kGameAutorotationCCDirector 1
 #define kGameAutorotationUIViewController 2
@@ -22,7 +23,9 @@
 //
 // Define here the type of autorotation that you want for your game
 //
-#define GAME_AUTOROTATION kGameAutorotationUIViewController
 
+#define Large 1
+#define Medium 2
+#define Small 3
 
 #endif // __GAME_CONFIG_H
