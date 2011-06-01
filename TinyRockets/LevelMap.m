@@ -7,8 +7,8 @@
 //
 
 #import "LevelMap.h"
-#import "planet.h"
 #import "obstacle.h"
+#import "Planet.h"
 #import "GameConfig.h"
 
 @implementation LevelMap
@@ -26,23 +26,24 @@
 
 - (void) createObstacleAt:(CGPoint)position withSize:(int)size
 {
-    
-	NSString *imageFile;
-	switch (size) 
+
+    //UNDERSTAND the obstacles and how you are implementing them... make it more simple if possible.
+	
+	obstacle *a = [obstacle spriteWithFile:@"shipAlpha.png"];
+	
+    switch (size) 
 	{
 		case Large:
-			imageFile = @"obstacle_large.png";
-			break;
+            a.scale = .75;
+            break;
 		case Medium:
-			imageFile = @"obstacle_medium.png";
+			a.scale = .5;
 			break;
 		case Small:
-			imageFile = @"obstacle_small.png";
+			a.scale = .25;
 			break;
 	}
-	
-	obstacle *a = [obstacle spriteWithFile:imageFile];
-	
+    
 	a.size = size;
 	a.position = position;
 	
@@ -52,23 +53,22 @@
 
 - (void) createPlanetAt:(CGPoint)position withSize:(int)size
 {
-    
-	NSString *imageFile;
-	switch (size) 
+    	
+    Planet *p = [Planet spriteWithFile:@"shipAlpha.png"];
+
+    switch (size) 
 	{
 		case Large:
-			imageFile = @"planet_large.png";
-			break;
+            p.scale = 1;
+            break;
 		case Medium:
-			imageFile = @"planet_medium.png";
+            p.scale = .75;
 			break;
 		case Small:
-			imageFile = @"planet_small.png";
+            p.scale = .5;
 			break;
 	}
-	
-	planet *p = [planet spriteWithFile:imageFile];
-	
+		
 	p.size = size;
 	p.position = position;
 	

@@ -24,7 +24,7 @@
 		//SET UP ROCKET ANIMATION
 		// Create a SpriteSheet -- just a big image which is prepared to 
         // be carved up into smaller images as needed
-        CCSpriteBatchNode *rocketSheet = [CCSpriteSheet batchNodeWithFile:@"_rocketRepeatAnim.png" capacity:50];
+        CCSpriteBatchNode *rocketSheet = [CCSpriteBatchNode batchNodeWithFile:@"_rocketRepeatAnim.png" capacity:50];
 		
         // Add sprite sheet to parent (it won't draw anything itself, but 
         // needs to be there so that it's in the rendering pipeline)
@@ -52,26 +52,12 @@
 		acceleration = -2.0;
 		keepScore = TRUE;
         
-        [self scheduleUpdate];
-        
-	}
+    }
 	return self;
 }
 
 -(void)update:(ccTime)dt
 {	
-	//Going up & Right (to give the illusion of speed).
-	if (acceleration > 0){
-		if((keepScore))
-			score+=15;
-    
-	}
-	//Going down & Left (to give the illusion of slowing down).
-	
-	if (acceleration < 0){
-		if((keepScore))
-			score+=6;
-	}
     
 }
 

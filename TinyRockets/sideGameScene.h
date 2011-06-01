@@ -9,7 +9,6 @@
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
 #import "Ship.h"
-#import	"StarBackground.h"
 #import "GasBackground.h"
 #import "EasyLevelFrames.h"
 #import "LevelMap.h"
@@ -17,9 +16,9 @@
 @interface sideGameScene : CCLayer {
 	Ship *ship;
 	GasBackground *_background;
-	StarBackground *starBackground;
 	EasyLevelFrames *easyLevelGenerator;
 	LevelMap *levelMap;
+    CCMotionStreak *motionStreak;
 	CCLabelTTF *scoresTotal;
     int _iterator;
     float _totalAcceleration;
@@ -27,6 +26,7 @@
 	int currentLevel;
 	int score;
     bool _boostGiven;
+    
 }
 
 +(id)scene;
