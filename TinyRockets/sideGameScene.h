@@ -27,12 +27,15 @@
 	int score;
     bool _boostGiven;
     
+<<<<<<< HEAD
     //I will commit this change...
     //I am commiting this change- I want it to update...
     //Let's see if I get this now...
     //Will this work?
     //Hello, can anybody hear me?
     //ONE MORE TIME.
+=======
+>>>>>>> d4967bed79fc129347f3c845c08bc13f050ddf20
 }
 
 +(id)scene;
