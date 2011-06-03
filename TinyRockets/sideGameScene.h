@@ -26,6 +26,7 @@
 	int currentLevel;
 	int score;
     bool _boostGiven;
+    CCParticleFire *particleFire;
     
 }
 

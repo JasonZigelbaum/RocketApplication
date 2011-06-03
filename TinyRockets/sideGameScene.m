@@ -41,21 +41,31 @@
 		
 		//set layer to respond to touches!
 		[self setIsTouchEnabled:TRUE];
-		
+        
+        //Set up the particle emitter for the fire trail
+        particleFire = [[CCParticleFire alloc] initWithTotalParticles:40];
+        particleFire.texture = [[CCTextureCache sharedTextureCache] addImage:@"fireparticle.png"];
+        particleFire.startSpinVar = 50.0f;
+        particleFire.posVar = ccp(15.0f, 15.0f);
+        particleFire.rotation = 270;
+        particleFire.scale = .5;
+        
+        // Set up the ship...
 		ship = [Ship spriteWithFile:@"shipAlpha.png"];
 		ship.rotation = 90;
         ship.scale = .75;
         
-        motionStreak = [motionStreak initWithFade:.5 minSeg:5 image:@"obstacle_large.png" width:10 length:10 color:ccc4(255, 255, 255, 255)];
-        
-        //[self addChild:motionStreak];
-
         currentLevel = 1;
 		
         _background = [GasBackground spriteWithFile:@"nyc.jpg"];
         _background.anchorPoint = ccp(0,0);
         [self addChild:_background];
-
+        
+        
+        //Add Fire
+        
+        [self addChild:particleFire];
+        
 		easyLevelGenerator = [[EasyLevelFrames alloc] init];
 		
 		ship.position = ccp(windowSize.width / 4 + 100, windowSize.height/2);
@@ -319,7 +329,11 @@
 - (void)update:(ccTime)dt
 {
     //[motionStreak setPosition:ccp(motionStreak.position.x, motionStreak.position.y + 5)];
-
+    
+    particleFire.position = ccp(ship.position.x - 60, ship.position.y - 10);
+    
+    particleFire.rotation = (ship.rotation + 180);
+    
 	scoresString = [NSString stringWithFormat:@"%i", ship.score];
 	[scoresTotal setString:scoresString];
 	
@@ -373,6 +387,8 @@
 	// Hide ship
 	ship.visible = NO;
 	ship.keepScore = FALSE;
+    
+    [self unscheduleUpdate];
 	
 	// Get window size
 	CGSize windowSize = [CCDirector sharedDirector].winSize;
@@ -398,16 +414,16 @@
 	// Add menu to layer
 	[self addChild:menu z:2];
     
-//    UIAlertView *myAlertView = [[UIAlertView alloc] initWithTitle:@"Submit your score?" message:@"Insert your name.\n\n\n" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"OK", nil];
-//    
-//    UITextField *myTextField = [[UITextField alloc] initWithFrame:CGRectMake(22.0, 55.0, 240.0, 25.0)];
-//    [myTextField setBackgroundColor:[UIColor whiteColor]];
-//    [myAlertView addSubview:myTextField];
-//    [myTextField setUserInteractionEnabled:YES];
-//    [myAlertView show];
-//    [myAlertView release];
-//    
-//    NSLog(@"%@",myTextField.text);
+    UIAlertView *myAlertView = [[UIAlertView alloc] initWithTitle:@"Submit your score?" message:@"Insert your name.\n\n\n" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"OK", nil];
+    
+    UITextField *myTextField = [[UITextField alloc] initWithFrame:CGRectMake(22.0, 55.0, 240.0, 25.0)];
+    [myTextField setBackgroundColor:[UIColor whiteColor]];
+    [myTextField setUserInteractionEnabled:YES];
+    
+    [myAlertView addSubview:myTextField];
+    [myAlertView show];
+    [myAlertView release];
+    [myTextField release];
     
     [self submitScore:scoresString username:@"Jason"];
 }
@@ -425,7 +441,8 @@
 	// cocos2d will automatically release all the children (Label)
 	
 	// don't forget to call "super dealloc"
-	[easyLevelGenerator dealloc];
+	[particleFire release];
+    [easyLevelGenerator dealloc];
 	[super dealloc];
 }
 @end

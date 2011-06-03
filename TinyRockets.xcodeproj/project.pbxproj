@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		96530AD71399643000C24674 /* fireparticle.png in Resources */ = {isa = PBXBuildFile; fileRef = 96530AD61399643000C24674 /* fireparticle.png */; };
 		965F5F791392F5A600CBB218 /* starAnimation-hd.plist in Resources */ = {isa = PBXBuildFile; fileRef = 965F5F751392F5A600CBB218 /* starAnimation-hd.plist */; };
 		965F5F7A1392F5A600CBB218 /* starAnimation-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 965F5F761392F5A600CBB218 /* starAnimation-hd.png */; };
 		965F5F7B1392F5A600CBB218 /* starAnimation.plist in Resources */ = {isa = PBXBuildFile; fileRef = 965F5F771392F5A600CBB218 /* starAnimation.plist */; };
@@ -161,6 +162,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		96530AD61399643000C24674 /* fireparticle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fireparticle.png; sourceTree = "<group>"; };
 		965F5F751392F5A600CBB218 /* starAnimation-hd.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "starAnimation-hd.plist"; path = "Resources/starAnimation-hd.plist"; sourceTree = "<group>"; };
 		965F5F761392F5A600CBB218 /* starAnimation-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "starAnimation-hd.png"; path = "Resources/starAnimation-hd.png"; sourceTree = "<group>"; };
 		965F5F771392F5A600CBB218 /* starAnimation.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = starAnimation.plist; path = Resources/starAnimation.plist; sourceTree = "<group>"; };
@@ -514,6 +516,7 @@
 		969CDD87139250DC0008C98C /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				96530AD61399643000C24674 /* fireparticle.png */,
 				96BA87071396C9CD00E013CA /* planetAnimation-hd.plist */,
 				96BA87081396C9CD00E013CA /* planetAnimation-hd.png */,
 				96BA87091396C9CD00E013CA /* planetAnimation.plist */,
@@ -937,6 +940,7 @@
 				96BA870C1396C9CD00E013CA /* planetAnimation-hd.png in Resources */,
 				96BA870D1396C9CD00E013CA /* planetAnimation.plist in Resources */,
 				96BA870E1396C9CD00E013CA /* planetAnimation.png in Resources */,
+				96530AD71399643000C24674 /* fireparticle.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
