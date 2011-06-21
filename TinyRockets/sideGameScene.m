@@ -45,14 +45,15 @@
         //Set up the particle emitter for the fire trail
         particleFire = [[CCParticleFire alloc] initWithTotalParticles:40];
         particleFire.texture = [[CCTextureCache sharedTextureCache] addImage:@"fireparticle.png"];
-        particleFire.startSpinVar = 50.0f;
-        particleFire.posVar = ccp(15.0f, 15.0f);
+        particleFire.startSpinVar = 20.0f;
+        particleFire.posVar = ccp(15.0f, 5.0f);
         particleFire.rotation = 270;
         particleFire.scale = .5;
-        
+        particleFire.anchorPoint = ccp(.5,.5);
+
         // Set up the ship...
 		ship = [Ship spriteWithFile:@"shipAlpha.png"];
-		ship.rotation = 90;
+		ship.rotation = 90; 
         ship.scale = .75;
         
         currentLevel = 1;
@@ -60,7 +61,6 @@
         _background = [GasBackground spriteWithFile:@"nyc.jpg"];
         _background.anchorPoint = ccp(0,0);
         [self addChild:_background];
-        
         
         //Add Fire
         
@@ -328,9 +328,8 @@
 // Mostly handles collision detection
 - (void)update:(ccTime)dt
 {
-    //[motionStreak setPosition:ccp(motionStreak.position.x, motionStreak.position.y + 5)];
-    
-    particleFire.position = ccp(ship.position.x - 60, ship.position.y - 10);
+ 
+    particleFire.position = ccp(ship.position.x - 30, ship.position.y - 10);
     
     particleFire.rotation = (ship.rotation + 180);
     
@@ -354,9 +353,8 @@
 		}
 		if (a.position.x <= 0)
 		{
-			[levelMap.obstacles removeObjectAtIndex:[levelMap.obstacles indexOfObject:a]];
-            [self removeChild:a cleanup:NO];
-		}
+            // Need a better way to dealloc and restart the levels.
+        }
         
 	}	// End obstacle loop
 }
@@ -426,6 +424,7 @@
     [myTextField release];
     
     [self submitScore:scoresString username:@"Jason"];
+
 }
 
 - (void)backButtonAction
@@ -441,7 +440,6 @@
 	// cocos2d will automatically release all the children (Label)
 	
 	// don't forget to call "super dealloc"
-	[particleFire release];
     [easyLevelGenerator dealloc];
 	[super dealloc];
 }

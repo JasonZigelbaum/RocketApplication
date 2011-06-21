@@ -35,7 +35,7 @@
         // Add the sprite as a child of the sheet, so that it knows where to get its image data.
         [planetSheet addChild:planetAnimation];
         
-        for(int i = 1; i <= 40; i++) {
+        for(int i = 1; i < 20; i++) {
             
             CCSpriteFrame *planetFrame = [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:[NSString stringWithFormat:@"%d.png",i]];
             [planetAnimationFrames addObject:planetFrame];
